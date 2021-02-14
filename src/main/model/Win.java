@@ -1,7 +1,6 @@
 package model;
 
-// Check who wins the game with the given coordinate.
-
+// Check who wins the game.
 public class Win {
     private int[][] exist;
 
@@ -9,8 +8,9 @@ public class Win {
         this.exist = exist;
     }
 
-    // check win in 4 directions
-
+    // Modifies: this
+    // Effects: If five same colour chess in line appeared in horizontal, vertical or slash directions,
+    //          return who wins the game.
     public int win(int x, int y) {
 
         if (horizontalWin(x, y) >= 5 || verticalWin(x, y) >= 5 || rightSlash(x, y) >= 5 || leftSlash(x, y) >= 5) {
@@ -31,9 +31,8 @@ public class Win {
         return -1;
     }
 
-    // Win in horizontal line
-    // Top-left corner is (0,0)
 
+    // Effect: if 5 same color in a row connect one by one, then game is over. Otherwise, keep playing.
     public int horizontalWin(int x, int y) {
         int countNum = 0;
         //Towards right
@@ -58,8 +57,7 @@ public class Win {
         return countNum;
     }
 
-    // Win in vertical line
-
+    // Effect: if 5 same color in a column connect one by one, then game is over. Otherwise, keep playing.
     public int verticalWin(int x, int y) {
         int countNum = 0;
         //Towards down
@@ -81,8 +79,8 @@ public class Win {
         return countNum;
     }
 
-    // Win in right slash line (positive m)
-
+    // Effect: if 5 same color in a right slash straight line connect one by one, then game is over.
+    //         Otherwise, keep playing.
     public int rightSlash(int x, int y) {
         int countNum = 0;
         // up-right direction
@@ -105,8 +103,8 @@ public class Win {
         return countNum;
     }
 
-    // Win in left slash line (negative m)
-
+    // Effect: if 5 same color in a left slash straight line connect one by one, then game is over.
+    //         Otherwise, keep playing.
     public int leftSlash(int x, int y) {
         int countNum = 0;
         //Up-left direction

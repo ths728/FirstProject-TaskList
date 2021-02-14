@@ -19,6 +19,9 @@ public class PlaceChess {
 
     Stack<Chess> stack;
 
+    // Requires: x,y values
+    // Effects: Determine the given coordinate is empty or chess on it. True represents empty,
+    //          false represents chess on it.
     public boolean checkEmpty(int x, int y) {
         if (placeChess[x][y] == 0) {
             return true;
