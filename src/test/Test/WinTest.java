@@ -12,21 +12,23 @@ class WinTest {
 
 
     @Test
-    public int testHorizontalWin(int x, int y) {
+    public void testHorizontalWin(int x, int y) {
+        assertEquals(0,exist[x][y] == 0);
+        assertEquals(1, exist[x][y] == 1);
     }
 
     @Test
-    public int testVerticalWin(){
+    public void testVerticalWin(){
 
     }
 
     @Test
-    public int testRightSlashWin(){
+    public void testRightSlashWin(){
 
     }
 
     @Test
-    public int testLeftSlashWin(){
+    public void testLeftSlashWin(){
 
     }
 }
