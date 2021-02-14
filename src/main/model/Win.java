@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 // Check who wins the game with the given coordinate.
 
