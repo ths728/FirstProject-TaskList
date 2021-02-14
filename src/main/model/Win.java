@@ -126,4 +126,7 @@ public class Win {
         }
         return countNum;
     }
+
+    public static void main(String[] args) {
+    }
 }
