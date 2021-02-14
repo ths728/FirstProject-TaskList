@@ -1,4 +1,4 @@
-package model;
+package ui;
 
 // Check who wins the game with the given coordinate.
 
@@ -12,6 +12,7 @@ public class Win {
     // check win in 4 directions
 
     public int win(int x, int y) {
+
         if (horizontalWin(x, y) >= 5 || verticalWin(x, y) >= 5 || rightSlash(x, y) >= 5 || leftSlash(x, y) >= 5) {
             // Use 1 represents colour "Black win", 2 represents colour "White win"
             // 0 represents null, -1 represents else(impossible).

@@ -1,34 +1,16 @@
 package Test;
 
-import model.Win;
+import model.PlaceChess;
+import model.Chess;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WinTest {
+    private PlaceChess placeChess;
+    private Chess chess;
     private int[][] exist;
 
     @BeforeEach
-
-
-    @Test
-    public void testHorizontalWin(int x, int y) {
-        assertEquals(0,exist[x][y] == 0);
-        assertEquals(1, exist[x][y] == 1);
+    public void runBefore() {
     }
 
-    @Test
-    public void testVerticalWin(){
-
-    }
-
-    @Test
-    public void testRightSlashWin(){
-
-    }
-
-    @Test
-    public void testLeftSlashWin(){
-
-    }
 }
