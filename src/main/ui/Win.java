@@ -1,4 +1,4 @@
-package model;
+package ui;
 
 // Check who wins the game.
 public class Win {
