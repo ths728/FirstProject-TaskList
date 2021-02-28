@@ -1,12 +1,13 @@
-# My Project- Gomoku
+# My Project - todo-application
 
 ## Hongshu Tian
 
- Gomoku is a game on a 10x10 chessboard. Black and white chess are placed by two players (player black & player white)
- on grid one by one. When the 5 same colour chess are in a straight line (horizontal, vertical and slash), 
- player with that colour win the game.
+- todo-application are applications that keep a list of tasks with goal, date and status.
+- Students can use this application to manage their own schedule.
+- I am interested in this project because this is very helpful.
  
  ## Phase 1, task 3
- - As a user, I want to be able to place chess with coordinates.
- - As a user, I want to be able to remove the last chess.
- - As a user, I want to be able to know who wins the game.
+ - As a user, I want to be able to add a task to my to-do list
+ - As a user, I want to be able to mark a task as complete on my to-do list
+ - As a user, I want to be able to delete a task from my to-do-list
+ - As a user, I want to be able to see the number of unfinished and number of finished tasks on my to-do list
