@@ -53,12 +53,23 @@ public class TaskListTest {
 
     @Test
     public void testDeleteTaskFromEmpty() {
-
+        assertEquals(0, emptyList.length());
+        assertFalse(emptyList.deleteTask(0));
+        assertFalse(emptyList.deleteTask(1));
+        assertEquals(0, emptyList.length());
     }
 
     @Test
     public void testDeleteTaskFromNonEmpty() {
-
+        assertEquals(2,taskList.length());
+        assertFalse(taskList.isEmpty());
+        taskList.deleteTask(0);
+        assertEquals(1, taskList.length());
+        assertTrue(taskList.deleteTask(0));
+        assertFalse(taskList.deleteTask(1));
+        taskList.deleteTask(1);
+        assertEquals(0, taskList.length());
+        assertFalse(taskList.deleteTask(1));
     }
 
     @Test
