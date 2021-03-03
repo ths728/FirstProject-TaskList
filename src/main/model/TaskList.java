@@ -1,7 +1,5 @@
 package model;
 
-import model.Task;
-import java.util.LinkedList;
 import java.util.ArrayList;
 
 // Represents a list of tasks
@@ -68,12 +66,9 @@ public class TaskList {
 
     //Effects: if list is empty return true, otherwise return false.
     public boolean isEmpty() {
-        if (taskList.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return taskList.size() == 0;
     }
+
 
     public int length() {
         return taskList.size();
