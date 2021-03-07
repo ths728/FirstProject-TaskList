@@ -1,0 +1,15 @@
+{
+    "date": 20210304,
+    "task": [
+        {
+            "date": 20210304,
+            "goal": "CPSC 210 midterm",
+            "status": "Finished"
+        },
+        {
+            "date": 20210304,
+            "goal": "CPSC 210 project",
+            "status": "Unfinished"
+        }
+    ]
+}

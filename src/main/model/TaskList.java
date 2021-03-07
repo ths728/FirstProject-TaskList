@@ -1,20 +1,22 @@
 package model;
 
+import persistence.Writable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // Represents a list of tasks
-public class TaskList {
-    private String goal;
+public class TaskList implements Writable {
     private int date;
-    private String status;
-    private ArrayList<Task> taskList;
+    private List<Task> taskList;
 
     //Effects: Initialize new taskList without any tasks
-    public TaskList() {
-        this.goal = goal;
+    public TaskList(Integer date) {
         this.date = date;
-        this.status = status;
-        taskList = new ArrayList<>();
+        this.taskList = new ArrayList<>();
     }
 
     // Modifies: this
@@ -72,5 +74,31 @@ public class TaskList {
 
     public int length() {
         return taskList.size();
+    }
+
+    public List<Task> getTasks() {
+        return Collections.unmodifiableList(taskList);
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("date", date);
+        json.put("task", taskListToJson());
+        return json;
+    }
+
+    // EFFECTS: return tasks in this tasklist as a JSON array
+    private JSONArray taskListToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Task t : taskList) {
+            jsonArray.put(t.toJson());
+        }
+        return jsonArray;
     }
 }

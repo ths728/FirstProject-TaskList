@@ -11,5 +11,7 @@
  - As a user, I want to be able to mark a task as complete on my to-do list
  - As a user, I want to be able to delete a task from my to-do-list
  - As a user, I want to be able to see the number of unfinished and number of finished tasks on my to-do list
+ 
+ ## Phase 2, task 2
  - As a user, I want to be able to save my to-do list to file
  - As a user, I want to be able to be able to load my to-do list from file.

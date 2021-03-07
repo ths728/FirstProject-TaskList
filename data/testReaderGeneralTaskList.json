@@ -1,0 +1,15 @@
+{
+  "task": [
+    {
+      "goal": "CPSC exam",
+      "date": 20210304,
+      "status": "Finished"
+    },
+    {
+      "goal": "CPSC project",
+      "date": 20210304,
+      "status": "Unfinished"
+    }
+  ],
+  "date": 20210304
+}

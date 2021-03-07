@@ -15,8 +15,8 @@ public class TaskListTest {
 
     @BeforeEach
     public void runBefore() {
-        emptyList = new TaskList();
-        taskList = new TaskList();
+        emptyList = new TaskList(20200304);
+        taskList = new TaskList(20200304);
         taskA = new Task("CPSC 210 In term exam", 20210224, "Finished");
         taskB = new Task("STAT 302 Midterm exam", 20210302, "Unfinished");
         taskC = new Task("MATH 221 WebWork 5", 20210227, "Finished");
@@ -28,7 +28,7 @@ public class TaskListTest {
 
     @Test
     public void testConstructor() {
-        TaskList taskListC = new TaskList();
+        TaskList taskListC = new TaskList(20200404);
         assertTrue (taskListC.isEmpty());
         assertEquals(0,taskListC.length());
     }

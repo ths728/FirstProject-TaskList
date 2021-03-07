@@ -9,7 +9,7 @@ public class TaskTest {
 
     @BeforeEach
     public void runBefore() {
-        taskTest = new Task("CPSC 210 In term exam", 20210224, "Finished");
+        taskTest = new Task("CPSC 210 In term Exam", 20210224, "Finished");
     }
 
     @Test
