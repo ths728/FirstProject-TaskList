@@ -1,15 +1,8 @@
 {
-  "task": [
-    {
-      "goal": "CPSC 210 In term exam",
-      "date": 20210224,
-      "status": "Finished"
-    },
-    {
-      "goal": "STAT 302 Midterm exam",
-      "date": 20210302,
-      "status": "Unfinished"
-    }
-  ],
-  "date": 20210304
+    "date": 20210304,
+    "task": [{
+        "date": 1,
+        "goal": "lab",
+        "status": "Finished"
+    }]
 }

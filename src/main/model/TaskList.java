@@ -37,11 +37,9 @@ public class TaskList implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: Mark unfinished task as complete(finished)
-    public void markTask(Task task) {
-        if (task.getStatus() == "Unfinished") {
-            task.setStatus("Finished");
-        }
+    // EFFECTS: Mark unfinished task as finished with given index of task in list;
+    public void markIndexTask(int index) {
+        taskList.get(index).setStatus("Finished");
     }
 
     // EFFECTS: return the number of task with status of finished

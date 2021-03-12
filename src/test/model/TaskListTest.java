@@ -76,12 +76,13 @@ public class TaskListTest {
     }
 
     @Test
-    public void testMarkTask() {
-        assertEquals(taskB.getStatus(), "Unfinished");
-        taskList.markTask(taskB);
+    public void testMarkIndexTask() {
+        taskList.markIndexTask(1);
         assertEquals(taskB.getStatus(), "Finished");
-        taskList.markTask(taskA);
-        assertEquals(taskB.getStatus(), "Finished");
+        taskList.addTask(taskD);
+        taskList.markIndexTask(2);
+        assertEquals(taskD.getStatus(), "Finished");
+        assertEquals(taskA.getStatus(), "Finished");
     }
 
     @Test
@@ -91,6 +92,8 @@ public class TaskListTest {
         taskList.addTask(taskC);
         assertEquals(2, taskList.numberOfFinishedTask());
         taskList.addTask(taskD);
+        assertEquals(2, taskList.numberOfFinishedTask());
+        taskList.addTask(new Task("CPSC", 1, "Unfinished"));
         assertEquals(2, taskList.numberOfFinishedTask());
         taskList.addTask(taskE);
         assertEquals(3, taskList.numberOfFinishedTask());

@@ -13,16 +13,16 @@ import java.util.Scanner;
 
 // Represent the tasklist application
 public class TaskListApp {
-    private static final String JSON_STORE = "./data/tasklist/json";
+    private static final String JSON_STORE = "./data/tasklist.json";
     private Scanner input;
-    private TaskList taskList;
+    private TaskList appTaskList;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
 
     // EFFECTS: constructs tasklist and runs application
     public TaskListApp() throws FileNotFoundException {
         input = new Scanner(System.in);
-        taskList = new TaskList(20210304);
+        appTaskList = new TaskList(20210304);
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         runTaskList();
@@ -46,6 +46,8 @@ public class TaskListApp {
                 processCommand(command);
             }
         }
+
+        System.out.println("\nGoodbye!");
     }
 
     // EFFECTS: displays menu of options to user
@@ -54,9 +56,9 @@ public class TaskListApp {
         System.out.println("\ta -> add task");
         System.out.println("\td -> delete task");
         System.out.println("\tm -> mark task");
-        System.out.println("\tnf -> number of finished task");
-        System.out.println("\tnuf -> number of unfinished task");
-        System.out.println("\ts -> save taskliat to file");
+        System.out.println("\tf -> number of finished task");
+        System.out.println("\tu -> number of unfinished task");
+        System.out.println("\ts -> save tasklist to file");
         System.out.println("\tl -> load tasklist from file");
         System.out.println("\tq -> quit");
     }
@@ -69,68 +71,66 @@ public class TaskListApp {
         } else if (command.equals("d")) {
             deleteTask();
         } else if (command.equals("m")) {
-            markTask();
-        } else if (command.equals("nf")) {
-            numberOfFinishedTask();
-        } else if (command.equals("nuf")) {
-            numberOfUnFinishedTask();
+            markIndexTask();
+        } else if (command.equals("f")) {
+            displayNumberOfFinishedTask();
+        } else if (command.equals("u")) {
+            displayNumberOfUnFinishedTask();
         } else if (command.equals("s")) {
             saveTaskList();
         } else if (command.equals("l")) {
             loadTaskList();
+        } else {
+            System.out.println("Invalid selection!");
         }
     }
 
     // MODIFIES: this
     // EFFECTS: prompt user for goal, date and status of task and adds to tasklist
     private void addTask() {
+        System.out.println("Please enter task goal");
         String goal = input.next();
+        System.out.println("Please enter task date");
         int date = input.nextInt();
+        System.out.println("Please enter task status");
         String status = input.next();
-        taskList.addTask(new Task(goal, date, status));
+        appTaskList.addTask(new Task(goal, date, status));
+        System.out.println("Task added successfully");
     }
 
     // MODIFIES: this
     // EFFECTS: prompt user for date of task and remove from tasklist
     private void deleteTask() {
-        int date = input.nextInt();
-        taskList.deleteTask(date);
+        System.out.println("Which task to delete?");
+        int num = input.nextInt();
+        appTaskList.deleteTask(num);
     }
 
-    // MODIFIES: this
-    // EFFECTS: prompt user for index of task in list and mark status as finished if the status is unfinished
-    private void markTask() {
+    private void markIndexTask() {
+        System.out.println("Which task is finished?");
         int index = input.nextInt();
-        List<Task> tasks = taskList.getTasks();
-        List newTasks = new ArrayList(tasks);
-        for (Object t: newTasks) {
-            Task task = (Task) newTasks.get(index - 1);
-            String goal = task.getGoal();
-            int date = task.getDate();
-            newTasks.set(index - 1, new Task(goal, date, "Finished"));
-        }
+        appTaskList.markIndexTask(index);
     }
 
-    // MODIFIES： this
     // EFFECTS: show number of finished tasks in tasklist
-    private void numberOfFinishedTask() {
-        taskList.numberOfFinishedTask();
+    private void displayNumberOfFinishedTask() {
+        System.out.println(appTaskList.numberOfFinishedTask());
     }
 
-    // MODIFIES: this
     // EFFECTS: show number of unfinished task in tasklist
-    private void numberOfUnFinishedTask() {
-        taskList.numberOfUnFinishedTask();
+    private void displayNumberOfUnFinishedTask() {
+        System.out.println(appTaskList.numberOfUnFinishedTask());
     }
 
     // EFFECTS: save the tasklist to file
     private void saveTaskList() {
         try {
             jsonWriter.open();
-            jsonWriter.write(taskList);
+            jsonWriter.write(appTaskList);
             jsonWriter.close();
+            System.out.println("Saved " + appTaskList.getDate() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
-            // pass
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 
@@ -138,9 +138,10 @@ public class TaskListApp {
     // EFFECTS: loads tasklist from file
     private void loadTaskList() {
         try {
-            taskList = jsonReader.read();
+            appTaskList = jsonReader.read();
+            System.out.println("Loaded " + appTaskList.getDate() + " from " + JSON_STORE);
         } catch (IOException e) {
-            // pass
+            System.out.println("Unable to read from file " + JSON_STORE);
         }
     }
 }
