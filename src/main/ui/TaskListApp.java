@@ -112,12 +112,12 @@ public class TaskListApp {
         appTaskList.markIndexTask(index);
     }
 
-    // EFFECTS: show number of finished tasks in tasklist
+    // EFFECTS: Display number of finished tasks in tasklist
     private void displayNumberOfFinishedTask() {
         System.out.println(appTaskList.numberOfFinishedTask());
     }
 
-    // EFFECTS: show number of unfinished task in tasklist
+    // EFFECTS: Display number of unfinished task in tasklist
     private void displayNumberOfUnFinishedTask() {
         System.out.println(appTaskList.numberOfUnFinishedTask());
     }
