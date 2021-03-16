@@ -1,4 +1,20 @@
 {
     "date": 20210304,
-    "task": []
+    "task": [
+        {
+            "date": 1,
+            "goal": "lab",
+            "status": "Unfinished"
+        },
+        {
+            "date": 2,
+            "goal": "exam",
+            "status": "Unfinished"
+        },
+        {
+            "date": 3,
+            "goal": "project",
+            "status": "Finished"
+        }
+    ]
 }

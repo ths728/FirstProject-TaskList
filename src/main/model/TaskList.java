@@ -46,7 +46,7 @@ public class TaskList implements Writable {
     public int numberOfFinishedTask() {
         int count = 0;
         for (int i = 0; i < taskList.size(); i++) {
-            if (taskList.get(i).getStatus() == "Finished") {
+            if (taskList.get(i).getStatus().equals("Finished")) {
                 count++;
             }
         }
@@ -57,7 +57,7 @@ public class TaskList implements Writable {
     public int numberOfUnFinishedTask() {
         int count = 0;
         for (int i = 0; i < taskList.size(); i++) {
-            if (taskList.get(i).getStatus() == "Unfinished") {
+            if (taskList.get(i).getStatus().equals("Unfinished")) {
                 count++;
             }
         }
