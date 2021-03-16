@@ -101,15 +101,17 @@ public class TaskListApp {
     // MODIFIES: this
     // EFFECTS: prompt user for date of task and remove from tasklist
     private void deleteTask() {
-        System.out.println("Which task to delete?");
+        System.out.println("Which task to delete? (Start from 0)");
         int num = input.nextInt();
         appTaskList.deleteTask(num);
+        System.out.println("Task has been deleted");
     }
 
     private void markIndexTask() {
-        System.out.println("Which task is finished?");
+        System.out.println("Which task is finished? (Start from 0)");
         int index = input.nextInt();
         appTaskList.markIndexTask(index);
+        System.out.println("Task has been marked");
     }
 
     // EFFECTS: Display number of finished tasks in tasklist

@@ -1,8 +1,4 @@
 {
     "date": 20210304,
-    "task": [{
-        "date": 1,
-        "goal": "lab",
-        "status": "Finished"
-    }]
+    "task": []
 }
