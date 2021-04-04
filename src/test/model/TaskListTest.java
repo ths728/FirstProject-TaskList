@@ -55,6 +55,42 @@ public class TaskListTest {
     }
 
     @Test
+    public void testAddTaskToEmptyWithoutException() {
+        try {
+            emptyList.addTaskException(taskA);
+            assertEquals(1, emptyList.length());
+            assertFalse(emptyList.isEmpty());
+            System.out.println("Task add successfully");
+        } catch (Exception exception) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testAddTaskWithException() {
+        try {
+            taskList.addTaskException(taskA);
+            assertEquals(2, taskList.length());
+            assertFalse(taskList.isEmpty());
+        } catch (Exception exception) {
+            assertEquals(2, taskList.length());
+            System.out.println("Task already exist");
+        }
+    }
+
+    @Test
+    public void testAddTaskToNonEmptyWithoutException() {
+        try {
+            taskList.addTaskException(taskC);
+            assertEquals(3, taskList.length());
+            assertFalse(taskList.isEmpty());
+            System.out.println("Task add successfully");
+        } catch (Exception exception) {
+            fail();
+        }
+    }
+
+    @Test
     public void testDeleteTaskFromEmpty() {
         assertEquals(0, emptyList.length());
         assertFalse(emptyList.deleteTask(0));

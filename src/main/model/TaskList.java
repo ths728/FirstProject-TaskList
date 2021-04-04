@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 // Represents a list of tasks
 public class TaskList implements Writable {
     private int date;
@@ -23,6 +24,23 @@ public class TaskList implements Writable {
     // Effects: add a task at the end of list.
     public void addTask(Task task) {
         this.taskList.add(task);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: add a task to the list. If task already exist throw exception
+    public void addTaskException(Task task) {
+        try {
+            if (!taskList.contains(task)) {
+                taskList.add(task);
+                System.out.println("Task add successfully");
+            } else {
+                taskList.remove(task);
+                taskList.add(task);
+                System.out.println("Task already exist");
+            }
+        } catch (Exception exception) {
+            // pass
+        }
     }
 
     // MODIFIES: this

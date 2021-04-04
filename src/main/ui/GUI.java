@@ -103,11 +103,11 @@ public class GUI extends JFrame {
         String complete = textFieldStatus.getText();
         int inputDate = Integer.parseInt(date);
         Task p = new Task(content, inputDate, complete);
-        taskList.addTask(p);
+        taskList.addTaskException(p);
         getInput();
-        textFieldGoal.setText("Goal: ");
-        textFieldDate.setText("Date: ");
-        textFieldStatus.setText("Status: ");
+        textFieldGoal.setText("");
+        textFieldDate.setText("");
+        textFieldStatus.setText("");
 
     }
 
@@ -193,10 +193,8 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int row = table.getSelectedRow();
                 int rows = table.getSelectedRows().length;
-                if (row != -1) {
-                    for (int i = 0; i <= rows; i++) {
-                        taskList.deleteTask(row);
-                    }
+                for (int i = 0; i <= rows && i >= 0; i++) {
+                    taskList.deleteTask(row);
                 }
                 getInput();
             }
@@ -433,12 +431,10 @@ public class GUI extends JFrame {
             try {
                 GUI frame = new GUI();
                 frame.setVisible(true);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
-
     }
 }
 
