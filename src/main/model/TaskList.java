@@ -39,7 +39,7 @@ public class TaskList implements Writable {
                 System.out.println("Task already exist");
             }
         } catch (Exception exception) {
-            // pass
+            exception.printStackTrace();
         }
     }
 
