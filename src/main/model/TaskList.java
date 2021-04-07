@@ -27,19 +27,12 @@ public class TaskList implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: add a task to the list. If task already exist throw exception
-    public void addTaskException(Task task) {
-        try {
-            if (!taskList.contains(task)) {
-                taskList.add(task);
-                System.out.println("Task add successfully");
-            } else {
-                taskList.remove(task);
-                taskList.add(task);
-                System.out.println("Task already exist");
-            }
-        } catch (Exception exception) {
-            exception.printStackTrace();
+    // EFFECTS: add a task to the list.
+    public void addTaskE(Task task) throws TaskException {
+        if (!taskList.contains(task)) {
+            taskList.add(task);
+        } else {
+            throw new TaskException();
         }
     }
 

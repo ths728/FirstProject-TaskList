@@ -14,6 +14,7 @@ import java.net.URI;
 
 import model.Task;
 import model.TaskList;
+import model.TaskException;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -97,13 +98,13 @@ public class GUI extends JFrame {
         scrollPane.setViewportView(table);
     }
 
-    public void addInfo() {
+    public void addInfo() throws TaskException {
         String content = textFieldGoal.getText();
         String date = textFieldDate.getText();
         String complete = textFieldStatus.getText();
         int inputDate = Integer.parseInt(date);
         Task p = new Task(content, inputDate, complete);
-        taskList.addTaskException(p);
+        taskList.addTaskE(p);
         getInput();
         textFieldGoal.setText("");
         textFieldDate.setText("");
@@ -179,7 +180,11 @@ public class GUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                addInfo();
+                try {
+                    addInfo();
+                } catch (TaskException taskException) {
+                    taskException.printStackTrace();
+                }
             }
         });
         panel.add(addTaskButton);
@@ -429,8 +434,8 @@ public class GUI extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                GUI frame = new GUI();
-                frame.setVisible(true);
+                GUI gui = new GUI();
+                gui.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }

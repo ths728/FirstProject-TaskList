@@ -57,11 +57,10 @@ public class TaskListTest {
     @Test
     public void testAddTaskToEmptyWithoutException() {
         try {
-            emptyList.addTaskException(taskA);
+            emptyList.addTaskE(taskA);
             assertEquals(1, emptyList.length());
             assertFalse(emptyList.isEmpty());
-            System.out.println("Task add successfully");
-        } catch (Exception exception) {
+        } catch (TaskException e) {
             fail();
         }
     }
@@ -69,23 +68,21 @@ public class TaskListTest {
     @Test
     public void testAddTaskWithException() {
         try {
-            taskList.addTaskException(taskA);
+            taskList.addTaskE(taskA);
             assertEquals(2, taskList.length());
             assertFalse(taskList.isEmpty());
-        } catch (Exception exception) {
+        } catch (TaskException e) {
             assertEquals(2, taskList.length());
-            System.out.println("Task already exist");
         }
     }
 
     @Test
     public void testAddTaskToNonEmptyWithoutException() {
         try {
-            taskList.addTaskException(taskC);
+            taskList.addTaskE(taskC);
             assertEquals(3, taskList.length());
             assertFalse(taskList.isEmpty());
-            System.out.println("Task add successfully");
-        } catch (Exception exception) {
+        } catch (TaskException e) {
             fail();
         }
     }
